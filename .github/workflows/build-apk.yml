@@ -1,6 +1,14 @@
+<<<<<<< HEAD
+name: Build and Release APK
+
+on:
+  push:
+    branches: [ main ]
+=======
 name: Build APK
 
 on:
+>>>>>>> 10688d6 (Upload code and workflow)
   workflow_dispatch:
 
 jobs:
@@ -8,6 +16,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+<<<<<<< HEAD
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip openjdk-17-jdk unzip libglu1-mesa
+=======
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -20,10 +37,23 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y python3-pip git zip unzip openjdk-17-jdk
+>>>>>>> 10688d6 (Upload code and workflow)
           pip install --upgrade pip
           pip install buildozer cython
 
       - name: Build APK
+<<<<<<< HEAD
+        run: buildozer android debug
+
+      - name: Release APK
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Release ${{ github.run_number }}
+          files: bin/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+=======
         run: |
           buildozer -v android debug
 
@@ -32,3 +62,4 @@ jobs:
         with:
           name: my-app
           path: bin/*.apk
+>>>>>>> 10688d6 (Upload code and workflow)
