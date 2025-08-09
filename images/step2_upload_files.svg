@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600">
+  <rect x="0" y="0" width="1000" height="600" fill="#f5f5f5"/>
+  <rect x="40" y="40" width="920" height="520" fill="none" stroke="#c8c8c8" stroke-width="2"/>
+  <text x="80" y="120" font-family="Arial" font-size="36" fill="#222">Bước 2 — Upload toàn bộ file</text>
+  <text x="80" y="180" font-family="Arial" font-size="20" fill="#444">Add files → Upload files (hoặc git push)</text>
+  <text x="80" y="540" font-family="Arial" font-size="16" fill="#888">Taixiu build guide</text>
+</svg>
