@@ -1,0 +1,103 @@
+<RootWidget>:
+    orientation: 'vertical'
+    padding: dp(8)
+    spacing: dp(8)
+
+    Label:
+        text: 'Phân tích Tài Xỉu'
+        size_hint_y: None
+        height: dp(48)
+        font_size: '22sp'
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(90)
+        spacing: dp(8)
+
+        Button:
+            text: 'TÀI'
+            font_size: '24sp'
+            on_release: root.on_button('TAI')
+            background_normal: ''
+            background_color: 1, 0.2, 0.2, 1
+
+        Button:
+            text: 'XỈU'
+            font_size: '24sp'
+            on_release: root.on_button('XIU')
+            background_normal: ''
+            background_color: 0.2, 0.6, 1, 1
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(160)
+        spacing: dp(8)
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Lịch sử (mới nhất bên trái)'
+                size_hint_y: None
+                height: dp(24)
+            ScrollView:
+                do_scroll_x: True
+                do_scroll_y: False
+                size_hint_y: None
+                height: dp(120)
+                GridLayout:
+                    id: history_grid
+                    cols: 1
+                    size_hint_x: None
+                    width: self.minimum_width
+                    height: dp(120)
+                    Label:
+                        text: root.history_text
+                        size_hint_x: None
+                        width: self.texture_size[0]
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Thống kê'
+                size_hint_y: None
+                height: dp(24)
+            Label:
+                text: root.stats_text
+                text_size: self.width, None
+                valign: 'top'
+                halign: 'left'
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(60)
+        spacing: dp(8)
+
+        Label:
+            text: 'Dự đoán ván tiếp theo:'
+            size_hint_x: 0.5
+            valign: 'middle'
+            halign: 'left'
+        Label:
+            id: predict_label
+            text: root.predict_text
+            size_hint_x: 0.5
+            valign: 'middle'
+            halign: 'left'
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(52)
+        spacing: dp(8)
+
+        Button:
+            text: 'Xóa lịch sử'
+            on_release: root.on_clear()
+        Button:
+            text: 'Xuất (JSON)'
+            on_release: root.on_export()
+
+    Label:
+        text: root.info_text
+        size_hint_y: None
+        height: dp(24)
+        font_size: '12sp'
